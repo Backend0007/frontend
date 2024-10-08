@@ -1,0 +1,282 @@
+<app-page-title [title]="'Liste des employés'" [pagetitle]="'HR Management'"></app-page-title>
+
+
+
+<div class="card" id="employeeTable">
+    <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+            <h6 class="text-15 grow">Employee (<b class="total-Employs">{{employes?.length}}</b>)</h6>
+            <div class="shrink-0">
+                <a href="javascript:void(0);" [appModalTrigger]="'addEmployeeModal'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><lucide-angular name="plus" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Ajouter Employé</span></a>
+            </div>
+        </div>
+
+        <div class="-mx-5 overflow-x-auto">
+            <ngx-datatable [rows]="employes" class="material w-full whitespace-nowrap" [loadingIndicator]="true" [columnMode]="'force'" [limit]="7" [sorts]="[{ prop: 'productName', dir: 'desc' }]" [headerHeight]="42" [footerHeight]="50" [rowHeight]="'auto'" [columns]="columns">
+                @for(column of columns;track $index){
+                
+                    <ngx-datatable-column name="{{column.name}}" prop="{{column.prop}}" [width]="column.prop == 'productCode' ? 200 : (column.prop == 'productName' ? 330 : (column.prop == 'status' ? 150 : 100))" headerClass="ltr:text-left rtl:text-right bg-slate-100 dark:bg-zink-600 px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold border-b border-slate-200 dark:border-zink-500" cellClass="px-3.5 py-2.5 first:pl-5 last:pr-5 border-y border-slate-200 dark:border-zink-500">
+                   
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                        @if(column.prop === 'photo'){
+
+
+                            
+                        <a href="javascript:void(0);" class="flex items-center gap-3">
+                            <div class="size-6 rounded-full shrink-0 bg-slate-100">
+                                <img src="{{row.img}}" alt="" class="h-6 rounded-full">
+                            </div>
+                            <h6 class="grow">{{value}}</h6>
+                        </a>
+
+                         }@else if(column.prop === 'idEmployee') {
+                        <div class="flex gap-3">
+                            <a class="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" [routerLink]="['/pages-account',value]"><lucide-angular name="eye" [class]="'inline-block size-3'" (click)="loadId(value)"></lucide-angular> </a>
+                            <a href="javascript:void(0);" [appModalTrigger]="'addEmployeeModal'" class="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md edit-item-btn bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" (click)="loadId(value)"><lucide-angular name="pencil" [class]="'size-4'"></lucide-angular></a>
+                            <a href="javascript:void(0);" [appModalTrigger]="'deleteModal'" class="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md remove-item-btn bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" (click)="loadId(value)"> <lucide-angular name="trash-2" [class]="'size-4'"></lucide-angular></a>
+                        </div>
+                        }@else {
+                        {{ value }}
+                        }
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-footer>
+                    <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset" let-isVisible="isVisible">
+                        <div class="grow ps-5">
+                            <p class="text-slate-500 dark:text-zink-200">Showing <b>{{getEndIndex()}}</b> of <b>{{ totalItems }}</b> Resultat</p>
+                        </div>
+                        @if(totalItems > 0){
+                        <pagination-controls class="pe-4" [currentPage]="currentPage" [boundryLinks]="false" previousLabel="Prev" nextLabel="Next" [itemsPerPage]="itemsPerPage" [total]="totalItems" (pageChanged)="onPageChange($event)">
+                        </pagination-controls>
+                        }
+                    </ng-template>
+                </ngx-datatable-footer>
+                }
+            </ngx-datatable>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<ng-modals id="addEmployeeModal" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 ">
+    <div class="w-screen md:w-[60rem] bg-white shadow rounded-md dark:bg-zink-600">
+        <div class="flex items-center justify-between p-4 border-b dark:border-zink-500">
+            <h5 class="text-16" id="addEmployeeLabel">Ajouter Employé
+
+        
+            </h5>
+            
+            <button data-modal-close="addEmployeeModal" dismissModal [ModalDismiss]="'addEmployeeModal'" id="addEmployee" class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500"><lucide-angular name="x" [class]="'size-5'"></lucide-angular></button>
+        </div>
+        <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+        
+            <form (ngSubmit)="sendData()" [formGroup]="registerFormEmployee" class="create-form" id="create-form" enctype="multipart/form-data">
+                <input type="hidden" value="" name="id" id="id">
+                <input type="hidden" value="add" name="action" id="action">
+                <input type="hidden" id="id-field">
+                <div id="alert-error-msg" class="hidden px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-500/20"></div>
+                <div class="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                    <div class="xl:col-span-12">
+                        <div class="relative size-24 mx-auto mb-4 rounded-full shadow-md bg-slate-100 profile-user dark:bg-zink-500">
+                            <img [src]="imgUrl" *ngIf="imgUrl" alt="" class="object-cover w-full h-full rounded-full user-profile-image">
+                            <div class="absolute bottom-0 flex items-center justify-center size-8 rounded-full ltr:right-0 rtl:left-0 profile-photo-edit">
+                                <input accept="image/*"   (change)="onFileLoad($event)" id="profile-img-file-input" name="profile-img-file-input" type="file" class="hidden profile-img-file-input">
+                                <input formControlName="photoEmployee"  type="hidden" >
+                                <label for="profile-img-file-input" class="flex items-center justify-center size-8 bg-white rounded-full shadow-lg cursor-pointer dark:bg-zink-600 profile-photo-edit">
+                                    <lucide-angular name="image-plus" class="size-4 text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500"></lucide-angular>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="employeeId" class="inline-block mb-2 text-base font-medium">Nom</label>
+                        <input formControlName="firstNameEmployee" type="text" id="employeeId" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" value="" placeholder="Nom" required>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="employeeInput" class="inline-block mb-2 text-base font-medium">Prénom</label>
+                        <input formControlName="lastNameEmployee" type="text" id="employeeInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Prénom" required>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="emailInput" class="inline-block mb-2 text-base font-medium">Sexe</label>
+                        <select formControlName="sex" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="">Selectionner ...</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                        </select>
+                    
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="phoneNumberInput" class="inline-block mb-2 text-base font-medium">E-mail professionnel</label>
+                        <input formControlName="emailProfessionalEmployee" type="text" id="phoneNumberInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="E-mail personnel" required>
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="phoneNumberInput" class="inline-block mb-2 text-base font-medium">E-mail personnel</label>
+                        <input formControlName="emailPersonalEmployee" type="text" id="phoneNumberInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="E-mail professionnel" required>
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="locationInput" class="inline-block mb-2 text-base font-medium">Télephone</label>
+                        <input formControlName="phoneEmployee" type="number" id="locationInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Télephone" required>
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Date de naissance</label>
+                        <input formControlName="dateOfBirthEmployee" type="text" id="joiningDateInput" mwlFlatpickr class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Select date" data-provider="flatpickr" data-date-format="d M, Y">
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Niveau d'etude</label>
+                        <select formControlName="accademyDegreeOfEmployee" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="">Selectionner ...</option>
+                            <option value="Non diplomé">Non diplomé</option>
+                            <option value="Diplome d'état">Diplome d'état</option>
+                            <option value="Graduat">Graduat</option>
+                            <option value="Licence">Licence</option>
+                            <option value="Master">Master</option>
+                            <option value="Ingenieur">Ingenieur</option>
+                            <option value="Doctorat">Doctorat</option>
+                        </select>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Service</label>
+                        <select formControlName="serviceConcern" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="Angular Developer">Angular Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Web Designer">Web Designer</option>
+                            <option value="Team Leader">Team Leader</option>
+                            <option value="VueJs Developer">VueJs Developer</option>
+                            <option value="NodeJS Developer">NodeJS Developer</option>
+                            <option value="ASP.Net Developer">ASP.Net Developer</option>
+                            <option value="UI / UX Designer">UI / UX Designer</option>
+                        </select>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Status</label>
+                        <select  formControlName="statusOfemployee"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="">Selectionner ...</option>
+                            <option value="Employé">Employé</option>
+                            <option value="Ouvrier">Ouvrier</option>
+                            
+                        </select>
+                    </div>
+                  
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium text-red-400">Etes vous le PDG ?</label>
+                            <select formControlName="directorGeneral" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                                <option value="false">Non</option>
+                                <option value="true">Oui</option>
+                            </select>
+                        </div>  
+                    
+
+
+                    <div class="xl:col-span-6">
+                        <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Avenue</label>
+                        <input formControlName="streetOfEmployee"  type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Avenue"  >
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Numero</label>
+                        <input formControlName="numberStreetOfEmployee"  type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Numero" >
+                    </div>
+                    <div class="xl:col-span-6">
+                        <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Quartier</label>
+                        <input formControlName="neighborhoodOfEmployee" type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Quartier" >
+                    </div>
+                   
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Commune</label>
+                        <select formControlName="cityOfEmployee" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="Angular Developer">Angular Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Web Designer">Web Designer</option>
+                            <option value="Team Leader">Team Leader</option>
+                            <option value="VueJs Developer">VueJs Developer</option>
+                            <option value="NodeJS Developer">NodeJS Developer</option>
+                            <option value="ASP.Net Developer">ASP.Net Developer</option>
+                            <option value="UI / UX Designer">UI / UX Designer</option>
+                        </select>
+                    </div>
+
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Province</label>
+                        <select formControlName="stateOfEmployee" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="Angular Developer">Angular Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Web Designer">Web Designer</option>
+                            <option value="Team Leader">Team Leader</option>
+                            <option value="VueJs Developer">VueJs Developer</option>
+                            <option value="NodeJS Developer">NodeJS Developer</option>
+                            <option value="ASP.Net Developer">ASP.Net Developer</option>
+                            <option value="UI / UX Designer">UI / UX Designer</option>
+                        </select>
+                    </div>
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Nationalité</label>
+                        <select formControlName="nationalityEmployee" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="Angular Developer">Angular Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Web Designer">Web Designer</option>
+                            <option value="Team Leader">Team Leader</option>
+                            <option value="VueJs Developer">VueJs Developer</option>
+                            <option value="NodeJS Developer">NodeJS Developer</option>
+                            <option value="ASP.Net Developer">ASP.Net Developer</option>
+                            <option value="UI / UX Designer">UI / UX Designer</option>
+                        </select>
+                    </div>
+              
+
+                    <div class="xl:col-span-12">
+                        <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Pays</label>
+                        <select formControlName="countryOfEmployee" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="designationSelect" id="typeSelect">
+                            <option value="Angular Developer">Angular Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                            <option value="Web Designer">Web Designer</option>
+                            <option value="Team Leader">Team Leader</option>
+                            <option value="VueJs Developer">VueJs Developer</option>
+                            <option value="NodeJS Developer">NodeJS Developer</option>
+                            <option value="ASP.Net Developer">ASP.Net Developer</option>
+                            <option value="UI / UX Designer">UI / UX Designer</option>
+                        </select>
+                    </div>
+                </div>
+                
+                  
+                <div class="flex justify-end gap-2 mt-4">
+                    <button type="reset" id="close-modal" dismissModal [ModalDismiss]="'addEmployeeModal'" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Annuler</button>
+                    <button type="submit" id="addNew" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 ">Ajouter employé</button>
+                </div>
+                
+            </form>
+        </div>
+       
+      </div>
+
+
+</ng-modals><!--end add Employee-->
+
+<ng-modals id="deleteModal" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+    <div class="w-screen md:w-[25rem] bg-white shadow rounded-md dark:bg-zink-600">
+        <div class="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto px-6 py-8">
+            <div class="float-right">
+                <button dismissModal [ModalDismiss]="'deleteModal'" id="deleteRecord-close" class="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500"><lucide-angular name="x" [class]="'size-5'"></lucide-angular></button>
+            </div>
+            <img src="assets/images/delete.png" alt="" class="block h-12 mx-auto">
+            <div class="mt-5 text-center">
+                <h5 class="mb-1">Etes vous sure?</h5>
+                <p class="text-slate-500 dark:text-zink-200">Etes vous sure de vouloir supprimer ? </p>
+                <div class="flex justify-center gap-2 mt-6">
+                    <button type="reset" dismissModal [ModalDismiss]="'deleteModal'" class="bg-white text-slate-500 btn hover:text-slate-500 hover:bg-slate-100 focus:text-slate-500 focus:bg-slate-100 active:text-slate-500 active:bg-slate-100 dark:bg-zink-600 dark:hover:bg-slate-500/10 dark:focus:bg-slate-500/10 dark:active:bg-slate-500/10">Annuler</button>
+                    
+                    <button (click)="sendId(trackerEmployeeById)" type="button" id="delete-record" class="text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Oui, Supprime! </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-modals><!--end delete modal-->

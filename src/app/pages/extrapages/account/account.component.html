@@ -1,0 +1,1149 @@
+
+
+
+@if(employeeData.idEmployee !== ""){
+<div class="mt-1 -ml-3 -mr-3 rounded-none card">
+  
+    <div class="card-body !px-2.5">
+        
+    
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-12 2xl:grid-cols-12">
+            <div class="lg:col-span-2 2xl:col-span-1">
+                <div class="relative inline-block size-20 rounded-full shadow-md bg-slate-100 profile-user xl:size-28">
+                    <img src="D:/arofile/Ko868QBORHS7X9INbout.png" alt="" class="object-cover border-0 rounded-full img-thumbnail user-profile-image">
+                    <div class="absolute bottom-0 flex items-center justify-center size-8 rounded-full ltr:right-0 rtl:left-0 profile-photo-edit">
+                        <input id="profile-img-file-input" type="file" class="hidden profile-img-file-input">
+                        <label for="profile-img-file-input" class="flex items-center justify-center size-8 bg-white rounded-full shadow-lg cursor-pointer dark:bg-zink-600 profile-photo-edit">
+                            <lucide-angular name="image-plus" [class]="'size-4 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-500'"></lucide-angular>
+                        </label>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+       
+            <div *ngIf="employeeData" class="lg:col-span-10 2xl:col-span-9">
+            <h5 class="mb-1">{{employeeData.lastNameEmployee}} {{employeeData.firstNameEmployee}}
+               
+                <lucide-angular name="badge-check" class="inline-block size-4 text-sky-500 fill-sky-100 dark:fill-custom-500/20"></lucide-angular></h5>
+                <div class="flex gap-3 mb-4">
+                    <p class="text-slate-500 dark:text-zink-200"><lucide-angular name="circle-user-round" [class]="'inline-block size-4 fill-slate-50/10 group-hover/item:fill-custom-400/20 dark:fill-zink-500'"></lucide-angular>
+                       
+                        @if(employeeData.directorGeneral == true){
+                        PDG |
+                         }
+                        {{employeeData.serviceConcern}}
+                    
+                    </p>
+                    <p class="text-slate-500 dark:text-zink-200"><lucide-angular name="map-pin" [class]="'inline-block size-4 ltr:mr-1 rtl:ml-1 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-500'"></lucide-angular>
+                        {{employeeData.cityOfEmployee}}, {{employeeData.stateOfEmployee}}</p>
+                </div>
+                <ul class="flex flex-wrap gap-3 mt-4 text-center divide-x divide-slate-200 dark:divide-zink-500 rtl:divide-x-reverse">
+                    <li class="px-5">
+                        <h5>{{employeeData.dateOfRecruitement}}</h5>
+                        <p class="text-slate-500 dark:text-zink-200">Date d'entrée</p>
+                    </li>
+                    <li class="px-5">
+                        <h5>{{employeeData.hourOfRecruitement}}</h5>
+                        <p class="text-slate-500 dark:text-zink-200">Heure d'entrée</p>
+                    </li>
+                    <li class="px-5">
+                        <h5>{{employeeData.dateOfBirthEmployee}} </h5>
+                        <p class="text-slate-500 dark:text-zink-200">Date de naissance</p>
+                    </li>
+                </ul>
+                <p class="mt-4 text-slate-500 dark:text-zink-200">
+                    Pas de commentaire
+                </p>
+                <div class="flex gap-2 mt-4">
+                    <a href="javascript:void(0);" class="flex items-center justify-center transition-all duration-200 ease-linear rounded size-9 text-sky-500 bg-sky-100 hover:bg-sky-200 dark:bg-sky-500/20 dark:hover:bg-sky-500/30">
+                        <lucide-angular name="facebook" [class]="'size-4'"></lucide-angular>
+                    </a>
+                    <a href="javascript:void(0);" class="flex items-center justify-center text-pink-500 transition-all duration-200 ease-linear bg-pink-100 rounded size-9 hover:bg-pink-200 dark:bg-pink-500/20 dark:hover:bg-pink-500/30">
+                        <lucide-angular name="instagram" [class]="'size-4'"></lucide-angular>
+                    </a>
+                    <a href="javascript:void(0);" class="flex items-center justify-center text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded size-9 hover:bg-red-200 dark:bg-red-500/20 dark:hover:bg-red-500/30">
+                        <lucide-angular name="globe" [class]="'size-4'"></lucide-angular>
+                    </a>
+                    <a href="javascript:void(0);" class="flex items-center justify-center transition-all duration-200 ease-linear rounded text-custom-500 bg-custom-100 size-9 hover:bg-custom-200 dark:bg-custom-500/20 dark:hover:bg-custom-500/30">
+                        <lucide-angular name="linkedin" [class]="'size-4'"></lucide-angular>
+                    </a>
+                    <a href="javascript:void(0);" class="flex items-center justify-center text-pink-500 transition-all duration-200 ease-linear bg-pink-100 rounded size-9 hover:bg-pink-200 dark:bg-pink-500/20 dark:hover:bg-pink-500/30">
+                        <lucide-angular name="dribbble" [class]="'size-4'"></lucide-angular>
+                    </a>
+                    <a href="javascript:void(0);" class="flex items-center justify-center transition-all duration-200 ease-linear rounded size-9 text-slate-500 bg-slate-100 hover:bg-slate-200 dark:bg-zink-600 dark:hover:bg-zink-500">
+                        <lucide-angular name="github" [class]="'size-4'"></lucide-angular>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-12 2xl:col-span-2">
+                <div class="flex gap-2 2xl:justify-end">
+                    <a href="mailto:{{employeeData.emailProfessionalEmployee}}" class="flex items-center justify-center size-[37.5px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20"><lucide-angular name="mail" [class]="'size-4'"></lucide-angular></a>
+                    <button type="button" class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                            Retour
+                        </button>
+
+                    <div class="relative dropdown">
+                        <button class="flex items-center justify-center size-[37.5px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="accountSettings" data-bs-toggle="dropdown"><lucide-angular name="more-horizontal" [class]="'size-4'"></lucide-angular></button>
+                        <ul class="absolute z-50 hidden py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white dark:bg-zink-600 rounded-md shadow-md dropdown-menu min-w-[10rem]" aria-labelledby="accountSettings">
+                            <li class="px-3 mb-2 text-sm text-slate-500">
+                                Payments
+                            </li>
+                            <li>
+                                <a class="block px-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="javascript:void(0);">Create Invoice</a>
+                            </li>
+                            <li>
+                                <a class="block px-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="javascript:void(0);">Pending Billing</a>
+                            </li>
+                            <li>
+                                <a class="block px-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="javascript:void(0);">Genarate Bill</a>
+                            </li>
+                            <li>
+                                <a class="block px-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="javascript:void(0);">Subscription</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!--end grid-->
+    </div>
+    <div class="card-body !px-2.5 !py-0">
+        <app-nav [tabSetName]="'overview'" [defaultActiveKey]="'overview'" className="flex flex-wrap w-full text-sm font-medium text-center nav-tabs">
+            <app-nav-item [tabSetName]="'overview'" [eventKey]="'overview'" class="group">
+                <a href="javascript:void(0);" data-tab-toggle data-target="overviewTabs" class="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-t-md text-slate-500 dark:text-zink-200 border-b border-transparent group-[.active]:text-custom-500 dark:group-[.active]:text-custom-500 group-[.active]:border-b-custom-500 dark:group-[.active]:border-b-custom-500 hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px]">Aperçu</a>
+            </app-nav-item>
+            <app-nav-item [tabSetName]="'overview'" [eventKey]="'document'" class="group">
+                <a href="javascript:void(0);" data-tab-toggle data-target="documentsTabs" class="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-t-md text-slate-500 dark:text-zink-200 border-b border-transparent group-[.active]:text-custom-500 dark:group-[.active]:text-custom-500 group-[.active]:border-b-custom-500 dark:group-[.active]:border-b-custom-500 hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px]">Documents</a>
+            </app-nav-item>
+            <app-nav-item [tabSetName]="'overview'" [eventKey]="'project'" class="group">
+                <a href="javascript:void(0);" data-tab-toggle data-target="projectsTabs" class="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-t-md text-slate-500 dark:text-zink-200 border-b border-transparent group-[.active]:text-custom-500 dark:group-[.active]:text-custom-500 group-[.active]:border-b-custom-500 dark:group-[.active]:border-b-custom-500 hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px]">Projects</a>
+            </app-nav-item>
+            <app-nav-item [tabSetName]="'overview'" [eventKey]="'followers'" class="group">
+                <a href="javascript:void(0);" data-tab-toggle data-target="followersTabs" class="inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-t-md text-slate-500 dark:text-zink-200 border-b border-transparent group-[.active]:text-custom-500 dark:group-[.active]:text-custom-500 group-[.active]:border-b-custom-500 dark:group-[.active]:border-b-custom-500 hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px]">Followers</a>
+            </app-nav-item>
+        </app-nav>
+    </div>
+</div><!--end card-->
+
+
+
+
+<div class="tab-content">
+    <mn-tab-pane [tabSetName]="'overview'" [eventKey]="'overview'" class="block tab-pane" id="overviewTabs">
+        <div class="grid grid-cols-1 gap-x-5 2xl:grid-cols-12">
+            <div class="2xl:col-span-9">
+                <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
+                    <div class="xl:col-span-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-3 text-15">Taux d'absenteisme</h6>
+                                <div id="recentStatistics" class="apex-charts" dir="ltr">
+                                    <apx-chart [series]="recentStatisticsChart.series" [chart]="recentStatisticsChart.chart" [plotOptions]="recentStatisticsChart.plotOptions" [dataLabels]="recentStatisticsChart.dataLabels" [fill]="recentStatisticsChart.fill" [stroke]="recentStatisticsChart.stroke" [xaxis]="recentStatisticsChart.xaxis" [colors]="recentStatisticsChart.colors" dir="ltr"></apx-chart>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    <div class="text-center card bg-custom-500 xl:col-span-3">
+                        <div class="flex flex-col h-full card-body">
+                            <img src="assets/images/medal.png" alt="" class="w-2/6 mx-auto">
+                            <div class="mt-5 mb-auto">
+                                <h5 class="mb-1 text-white">Ancieneté</h5>
+                                <p class="text-custom-200">
+
+                                </p>
+                            </div>
+                            <div class="p-3 mt-5 rounded-md bg-custom-600">
+                                <h2 class="mb-1 text-white">{{olderness(employeeData.dateOfRecruitement)}}</h2>
+                                <p class="text-custom-200"></p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="shrink-0">
+                       
+                    </div>
+                </div><!--end grid-->
+                <div class="card">
+                    <div class="card-body">
+                       <div _ngcontent-ng-c4120185449="" class="flex flex-wrap gap-2">
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'activateEmployeeModal'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Activer le compte</span></a>
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'ajoutercv'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Ajouter CV</span></a>
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'ajouterlettredemotivation'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Ajouter lettre de motivation</span></a>
+                        
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'ajouteridentite'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Ajouter Pièce d'identité</span></a>
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'ajouterdiplome'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Ajouter Diplome</span></a>
+                        <a href="javascript:void(0);" (click)="getOneUser(employeeData.idEmployee)" [appModalTrigger]="'ajoutersignature'" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee"><span class="align-middle">Ajouter Signature</span></a>
+                        
+                       </div>
+                    </div>
+                </div>
+            </div><!--end col-->
+            <div class="2xl:col-span-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="mb-4 text-15">Information personnelle</h6>
+                        <div class="overflow-x-auto">
+                            <table class="w-full ltr:text-left rtl:ext-right">
+                                <tbody>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Poste</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">@if(employeeData.directorGeneral === true){PDG |} {{employeeData.serviceConcern}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Télephone </th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.phoneEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Date de naissance</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.dateOfBirthEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Website</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200"><a href="" target="_blank" class="text-custom-500">www.themesdesign.in</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Email personnel</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">
+                                            {{employeeData.emailPersonalEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Email professionnel</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">
+                                            {{employeeData.emailProfessionalEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="py-2 font-semibold ps-0" scope="row">Date de recrutement</th>
+                                        <td class="py-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.dateOfRecruitement}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Nationalité</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.nationalityEmployee}}</td>
+                                    <tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Adresse</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.streetOfEmployee}}, {{employeeData.numberStreetOfEmployee}}</td>
+                                    <tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Quartier</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.neighborhoodOfEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Commune</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.cityOfEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Province</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.stateOfEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Pays</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.countryOfEmployee}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="pt-2 font-semibold ps-0" scope="row">Enregistrer par</th>
+                                        <td class="pt-2 text-right text-slate-500 dark:text-zink-200">{{employeeData.createdEmployeeBy}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!--end card-->
+               
+            </div><!--end col-->
+        </div><!--end grid-->
+
+        <div class="grid grid-cols-1 gap-x-5 lg:grid-cols-2 2xl:grid-cols-3">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="mb-3 text-15">Historique de paiement</h6>
+                    <div class="overflow-x-auto">
+                        <table class="w-full whitespace-nowrap">
+                            <thead class="ltr:text-left rtl:text-right">
+                                <tr>
+                                    <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500">
+                                        Date</th>
+                                    <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500">
+                                        Montant</th>
+                                    <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500">
+                                        Status</th>
+                                    <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500">
+                                        Description</th>
+                                    <th class="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500">
+                                        PDF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">2 April,
+                                        2023</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">$321.00
+                                    </td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 text-green-500">
+                                        Paid</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
+                                        Subscription</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"><a href="javascript:void(0);" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600"><i class="ri-download-2-line"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">8 June,
+                                        2023</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">$184.00
+                                    </td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 text-yellow-500">
+                                        Pending</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">April
+                                        Autofile</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"><a href="javascript:void(0);" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600"><i class="ri-download-2-line"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">15 July,
+                                        2023</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">$325.00
+                                    </td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 text-yellow-500">
+                                        Pending</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
+                                        Subscription</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"><a href="javascript:void(0);" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600"><i class="ri-download-2-line"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">29 July,
+                                        2023</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">$321.00
+                                    </td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 text-green-500">
+                                        Paid</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">Prepaid
+                                        Bill</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"><a href="javascript:void(0);" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600"><i class="ri-download-2-line"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">12 Aug,
+                                        2023</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">$189.99
+                                    </td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500 text-green-500">
+                                        Paid</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500">
+                                        Subscription</td>
+                                    <td class="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"><a href="javascript:void(0);" class="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600"><i class="ri-download-2-line"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="mb-3 text-15">Aperçu compte de paiement</h6>
+
+                    <div class="flex flex-col gap-3">
+                        <a href="javascript:void(0);" class="flex items-center gap-3 p-2 border rounded-md border-slate-200 dark:border-zink-500">
+                            <div class="flex items-center justify-center size-12 rounded-md shrink-0">
+                                <img src="assets/images/payment/img-01.png" alt="" class="h-10">
+                            </div>
+                            <div class="grow">
+                                <h5 class="mb-1 text-15">Mastercard</h5>
+                                <p class="text-sm text-slate-500 dark:text-zink-200">XXXX XXXX XXXX 1501</p>
+                            </div>
+                            <div>
+                                <span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-sky-100 border-transparent text-sky-500 dark:bg-sky-500/20 dark:border-transparent">Primary</span>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="flex items-center gap-3 p-2 border rounded-md border-slate-200 dark:border-zink-500">
+                            <div class="flex items-center justify-center size-12 rounded-md shrink-0">
+                                <img src="assets/images/payment/img-02.png" alt="" class="h-10">
+                            </div>
+                            <div class="grow">
+                                <h5 class="mb-1 text-15">Visa Card</h5>
+                                <p class="text-sm text-slate-500 dark:text-zink-200">XXXX XXXX XXXX 9871</p>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="flex items-center gap-3 p-2 border rounded-md border-slate-200 dark:border-zink-500">
+                            <div class="flex items-center justify-center size-12 rounded-md shrink-0">
+                                <img src="assets/images/payment/img-03.png" alt="" class="h-10">
+                            </div>
+                            <div class="grow">
+                                <h5 class="mb-1 text-15">Discover Network</h5>
+                                <p class="text-sm text-slate-500 dark:text-zink-200">XXXX XXXX XXXX 7435</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="javascript:void(0);" class="inline-block underline text-custom-500">Add New Card <lucide-angular name="move-right" [class]="'inline-block size-4 ml-2 rtl:-rotate-180'"></lucide-angular></a>
+                    </div>
+                </div>
+            </div><!--end card-->
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex items-center mb-3">
+                        <h6 class="grow text-15">Plan Details</h6>
+                        <a href="javascript:void(0);" class="underline text-custom-500">Change Plan</a>
+                    </div>
+                    <div class="grid grid-cols-1 gap-5 mb-3 md:grid-cols-3">
+                        <div>
+                            <p class="mb-1 text-slate-500 dark:text-zink-200">Plan Type</p>
+                            <h6>Regular Plan</h6>
+                        </div><!--end col-->
+                        <div>
+                            <p class="mb-1 text-slate-500 dark:text-zink-200">Monthly Limit</p>
+                            <h6>2 Download</h6>
+                        </div><!--end col-->
+                        <div>
+                            <p class="mb-1 text-slate-500 dark:text-zink-200">Cost</p>
+                            <h6>$26/Monthly</h6>
+                        </div><!--end col-->
+                    </div><!--end grid-->
+                    <div class="px-4 py-3 mb-2 text-sm rounded-md text-slate-500 dark:text-zink-200 bg-slate-50 dark:bg-zink-600">
+                        <h6 class="mb-1">Our discounted pricing is available until August 16, 2023.</h6>
+                        <p>After this date, our pricing will transition to $22. For more details, click <a href="javascript:void(0);" class="font-semibold text-slate-700 dark:text-zink-50">Learn More</a></p>
+                    </div>
+                    <p class="mb-2 text-slate-500 dark:text-zink-200">Plan Benefits</p>
+                    <ul class="flex flex-col gap-1 list-disc list-inside">
+                        <li>Build with TailwindCSS & Vite</li>
+                        <li>Multiple Layouts</li>
+                        <li>Easy to Customize</li>
+                    </ul>
+                </div>
+            </div><!--end card-->
+        </div><!--end grid-->
+    </mn-tab-pane>
+    <mn-tab-pane [tabSetName]="'overview'" [eventKey]="'document'" class="tab-pane" id="documentsTabs">
+        <div class="flex items-center gap-3 mb-4">
+            <h5 class="underline grow">Documents</h5>
+            <div class="shrink-0">
+                <button data-modal-target="addDocuments" type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Add
+                    Document</button>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full align-middle border-separate whitespace-nowrap border-spacing-y-1">
+                <thead class="text-left bg-white dark:bg-zink-700">
+                    <tr>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">
+                            <div class="flex items-center h-full">
+                                <input id="Checkbox1" class="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox" value="">
+                            </div>
+                        </th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Type Document</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Nom Document</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Tail du fichier</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Date de création</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Créer par</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent">Status</th>
+                        <th class="px-3.5 py-2.5 font-semibold border-b border-transparent text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(data of documentdata;track $index){
+                    <tr class="bg-white dark:bg-zink-700">
+                        <td class="px-3.5 py-2.5 border-y border-transparent">
+                            <div class="flex items-center h-full">
+                                <input id="Checkbox2" class="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800" type="checkbox" value="">
+                            </div>
+                        </td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">
+                            <span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500
+                                 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent">{{data.documentstype}}</span>
+                        </td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">{{data.documentsname}}</td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">{{data.filesize}}</td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">{{data.modifydate}}</td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">{{data.uploaded}}</td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent"><span class="px-2.5 py-0.5 inline-block text-xs font-medium rounded border {{data.bgcolor}} border-transparent {{data.textcolor}} dark:border-transparent">{{data.status}}</span>
+                        </td>
+                        <td class="px-3.5 py-2.5 border-y border-transparent">
+                            <div class="flex items-center justify-end gap-2">
+                                <a href="javascript:void(0);" class="flex items-center justify-center size-8 transition-all duration-150 ease-linear rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-zink-600 dark:hover:bg-zink-500"><lucide-angular name="eye" [class]="'size-3'"></lucide-angular></a>
+                                <a href="javascript:void(0);" class="flex items-center justify-center size-8 transition-all duration-150 ease-linear rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-zink-600 dark:hover:bg-zink-500"><lucide-angular name="file-edit" [class]="'size-3'"></lucide-angular></a>
+                                <a href="javascript:void(0);" class="flex items-center justify-center size-8 transition-all duration-150 ease-linear rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-zink-600 dark:hover:bg-zink-500"><lucide-angular name="arrow-down-to-line" [class]="'size-3'"></lucide-angular></a>
+                                <a href="javascript:void(0);" class="flex items-center justify-center size-8 transition-all duration-150 ease-linear rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-zink-600 dark:hover:bg-zink-500"><lucide-angular name="trash-2" [class]="'size-3'"></lucide-angular></a>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="flex flex-col items-center gap-4 mt-4 mb-4 md:flex-row">
+            <div class="grow">
+                <p class="text-slate-500 dark:text-zink-200">Showing <b>6</b> of <b>18</b> Results</p>
+            </div>
+            <ul class="flex flex-wrap items-center gap-2 shrink-0">
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-left"></lucide-angular></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto active">3</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">4</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">5</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">6</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-right"></lucide-angular></a>
+                </li>
+            </ul>
+        </div>
+    </mn-tab-pane><!--end tab pane-->
+    <mn-tab-pane [tabSetName]="'overview'" [eventKey]="'project'" class="tab-pane" id="projectsTabs">
+        <div class="flex items-center gap-3 mb-4">
+            <h5 class="underline grow">Projects</h5>
+            <div class="shrink-0">
+                <button type="button" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Add
+                    Project</button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 gap-x-5 md:grid-cols-2 2xl:grid-cols-4">
+            @for(data of projectsdata;track $index){
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex">
+                        <div class="grow">
+                            <img src="{{data.avatar}}" alt="" class="h-11">
+                        </div>
+                        <div class="shrink-0">
+                            <div class="relative dropdown" mndropdown position="right-end">
+                                <button mndropdownToggle class="flex items-center justify-center size-[37.5px] dropdown-toggle p-0 text-slate-500 btn bg-slate-200 border-slate-200 hover:text-slate-600 hover:bg-slate-300 hover:border-slate-300 focus:text-slate-600 focus:bg-slate-300 focus:border-slate-300 focus:ring focus:ring-slate-100 active:text-slate-600 active:bg-slate-300 active:border-slate-300 active:ring active:ring-slate-100 dark:bg-zink-600 dark:hover:bg-zink-500 dark:border-zink-600 dark:hover:border-zink-500 dark:text-zink-200 dark:ring-zink-400/50" id="projectDropdownmenu1" data-bs-toggle="dropdown"><lucide-angular name="more-horizontal" [class]="'size-4'"></lucide-angular></button>
+                                <ul mndropdownMenu class="absolute z-50 hidden py-2 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem]" aria-labelledby="projectDropdownmenu1">
+                                    <li>
+                                        <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear bg-white text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500" href="javascript:void(0);"><lucide-angular name="eye" [class]="'inline-block size-3 mr-1'"></lucide-angular>
+                                            Aperçu</a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear bg-white text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500" href="javascript:void(0);"><lucide-angular name="file-edit" [class]="'inline-block size-3 mr-1'"></lucide-angular>
+                                            Modifier</a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear bg-white text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500" href="javascript:void(0);"><lucide-angular name="trash-2" [class]="'inline-block size-3 mr-1'"></lucide-angular>
+                                            supprimer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6 class="mb-1 text-16"><a href="javascript:void(0);">{{data.title}}</a></h6>
+                        <p class="text-slate-500 dark:text-zink-200">{{data.description}}</p>
+                    </div>
+                    <div class="flex w-full gap-3 mt-6 text-center divide-x divide-slate-200 dark:divide-zink-500 rtl:divide-x-reverse">
+                        <div class="px-3 grow">
+                            <h6 class="mb-1">{{data.dueDate}}</h6>
+                            <p class="text-slate-500 dark:text-zink-200">Due Date</p>
+                        </div>
+                        <div class="px-3 grow">
+                            <h6 class="mb-1">{{data.budget}}</h6>
+                            <p class="text-slate-500 dark:text-zink-200">Budget</p>
+                        </div>
+                    </div>
+                    <div class="w-full h-1.5 mt-6 rounded-full bg-slate-100 dark:bg-zink-600">
+                        <!-- <div class="h-1.5 rounded-full {{data.color}}" style="width: {{data.progress}}%"></div> -->
+                    </div>
+                </div>
+            </div>
+            }
+
+
+        </div><!--end grid-->
+        <div class="flex flex-col items-center gap-4 mt-2 mb-4 md:flex-row">
+            <div class="grow">
+                <p class="text-slate-500 dark:text-zink-200">Showing <b>8</b> of <b>30</b> Results</p>
+            </div>
+            <ul class="flex flex-wrap items-center gap-2 shrink-0">
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevrons-left"></lucide-angular></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-left"></lucide-angular></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto active">3</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">4</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">5</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">6</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-right"></lucide-angular></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevrons-right"></lucide-angular></a>
+                </li>
+            </ul>
+        </div>
+    </mn-tab-pane>
+
+
+
+
+
+
+
+
+    <mn-tab-pane [tabSetName]="'overview'" [eventKey]="'followers'" class="tab-pane" id="followersTabs">
+        <h5 class="mb-4 underline">Followers</h5>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-x-5">
+            @for(data of followersData;track $index){
+            <div class="relative card">
+                <div class="card-body">
+                    <p class="absolute inline-block px-5 py-1 text-xs ltr:left-0 rtl:right-0 {{data.roleColor}} {{data.roleBgColor}} dark:bg-custom-500/20 top-5 ltr:rounded-e rtl:rounded-l">
+                        {{data.title}}</p>
+                    <div class="flex items-center justify-end">
+                        <p class="text-slate-500 dark:text-zink-200">{{data.doj}}</p>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <div class="flex justify-center">
+                            <div class="size-20 overflow-hidden rounded-full bg-slate-100">
+                                <img src="{{data.avatar}}" alt="" class="">
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);">
+                            <h4 class="mt-4 mb-2 font-semibold text-16">{{data.name}} </h4>
+                        </a>
+                        <div class="text-slate-500 dark:text-zink-200">
+                            <p class="mb-1">{{data.email}}</p>
+                            <p>{{data.phone}}</p>
+                            <p class="inline-block px-3 py-1 my-4 font-semibold rounded-md text-slate-600 bg-slate-100 dark:bg-zink-600 dark:text-zink-200">
+                                {{data.experience}}</p>
+                            <h4 class="text-15 text-custom-500">{{data.salary}} <span class="text-xs font-normal text-slate-500 dark:text-zink-200">{{data.salaryFrequency}}</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end card-->
+            }
+
+        </div><!--end grid-->
+        <div class="flex flex-col items-center gap-4 mb-4 md:flex-row">
+            <div class="grow">
+                <p class="text-slate-500 dark:text-zink-200">Showing <b>8</b> of <b>18</b> Results</p>
+            </div>
+            <ul class="flex flex-wrap items-center gap-2">
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-left"></lucide-angular></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto active">3</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">4</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">5</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto">6</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border border-slate-200 dark:border-zink-500 rounded text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-50 dark:[&.active]:text-custom-50 [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto"><lucide-angular [class]="'size-4 rtl:rotate-180'" name="chevron-right"></lucide-angular></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+    </mn-tab-pane><!--end tab pane-->
+
+
+
+
+<!--activation compte utilisateur-->
+    <ng-modals *ngIf="user" id="activateEmployeeModal" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4 ">
+        <div class="w-screen md:w-[60rem] bg-white shadow rounded-md dark:bg-zink-600">
+            <div class="flex items-center justify-between p-4 border-b dark:border-zink-500">
+                <h5 class="text-16" id="addEmployeeLabel">Activer le compte utilisateur
+
+                    <span >
+                        @if(user.activation)
+                        {
+                         <span class="text-green-500"> Actif </span>
+                        }@else{
+                        <span class="text-red-500"> Désactiver</span>
+                        }
+                      </span>
+
+                </h5>
+                <button data-modal-close="activateEmployeeModal" dismissModal [ModalDismiss]="'activateEmployeeModal'" id="addEmployee" class="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500"><lucide-angular name="x" [class]="'size-5'"></lucide-angular></button>
+            </div>
+
+            <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+                <form [formGroup] = "activateForm" (ngSubmit)="onSubmit(user.idUser)" class="create-form" id="create-form" enctype="multipart/form-data">
+                    <input type="hidden" value="" name="id" id="id">
+                    <input type="hidden" value="add" name="action" id="action">
+                    <input type="hidden" id="id-field">
+                    <div id="alert-error-msg" class="hidden px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-500/20"></div>
+                    <div class="grid grid-cols-1 gap-4 xl:grid-cols-12">
+                        <div class="xl:col-span-12">
+                            <div class="relative size-24 mx-auto mb-4 rounded-full shadow-md bg-slate-100 profile-user dark:bg-zink-500">
+                                <img  alt="" class="object-cover w-full h-full rounded-full user-profile-image">
+                                <div class="absolute bottom-0 flex items-center justify-center size-8 rounded-full ltr:right-0 rtl:left-0 profile-photo-edit">
+                                    <input accept="image/*"    id="profile-img-file-input" name="profile-img-file-input" type="file" class="hidden profile-img-file-input">
+                                    <input formControlName="photoEmployee"  type="hidden" >
+                                    <label for="profile-img-file-input" class="flex items-center justify-center size-8 bg-white rounded-full shadow-lg cursor-pointer dark:bg-zink-600 profile-photo-edit">
+                                        <lucide-angular name="image-plus" class="size-4 text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500"></lucide-angular>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-12">
+                            <label for="employeeId" class="inline-block mb-2 text-base font-medium">Nom</label>
+                            <input value="{{user.firstName}}" disabled  type="text" id="employeeId" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"   placeholder="Nom" required readonly >
+                        </div>
+                      
+                        <div class="xl:col-span-12">
+                            <label for="employeeInput" class="inline-block mb-2 text-base font-medium">Prénom</label>
+                            <input value="{{user.lastName}}" disabled type="text" id="employeeInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  placeholder="Prénom" required  readonly>
+                        </div>
+                       
+                        <div class="xl:col-span-12">
+                            <label for="sex" class="inline-block mb-2 text-base font-medium">Sexe</label>
+                            <input  value="{{user.sex}}" disabled  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  readonly>
+                        </div>
+                        <div class="xl:col-span-6">
+                            <label for="phoneNumberInput" class="inline-block mb-2 text-base font-medium">E-mail professionnel</label>
+                            <input  value="{{user.email}}" disabled  type="text" id="phoneNumberInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="E-mail personnel" required  readonly>
+                        </div>
+                      
+
+                        <div class="xl:col-span-6">
+                            <label for="locationInput" class="inline-block mb-2 text-base font-medium">Téléphone</label>
+                            <input  value="{{user.phone}}" disabled  type="number" id="locationInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Téléphone" required  readonly>
+                        </div>
+
+
+                        @if(!user.activation){
+                        <div class="xl:col-span-6">
+                            <label for="locationInput" class="inline-block mb-2 text-base font-medium">Password</label>
+                            <input formControlName="password" type="text" id="locationInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Mot de passe" required>
+                        </div>
+
+                        <div class="xl:col-span-6">
+                            <label for="locationInput" class="inline-block mb-2 text-base font-medium">Confirm password </label>
+                            <input formControlName="repassword" type="text" id="locationInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Confirmer mot de passe" required>
+                        </div>
+                           }
+
+                       
+                   
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Role</label>
+                            <select formControlName="role" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  readonly>
+                                <option value="" >@if(user.activation){ {{user.role}} } </option>
+                                <option value="developpeur" >Developpeur</option>
+                                <option value="administrateur" >Administrateur</option>
+                                <option value="manager" >Manager</option>
+                                <option value="utilisateur" >Utilisateur</option>
+                                <option value="responsable" >Responsable</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Status</label>
+                            <input   value="{{user.status}}" disabled   class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"   readonly>
+                              
+                        </div>
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Site</label>
+                            <input   value="{{user.placeOfWork}}" disabled   class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"   readonly>
+                              
+                        </div>
+    
+                        <div class="xl:col-span-6">
+                            <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Avenue</label>
+                            <input  value="{{user.address}}" disabled   type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Avenue"  readonly  >
+                        </div>
+                        <div class="xl:col-span-6">
+                            <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Numero</label>
+                            <input  value="{{user.number}}" disabled   type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Numero"  readonly>
+                        </div>
+                        <div class="xl:col-span-6">
+                            <label for="joiningDateInput" class="inline-block mb-2 text-base font-medium">Quartier</label>
+                            <input  value="{{user.neighborhood}}" disabled  type="text" id="joiningDateInput"  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Quartier"  readonly>
+                        </div>
+                       
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Commune</label>
+                            <input  value="{{user.city}}" disabled  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  readonly>
+                            
+                        </div>
+    
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Province</label>
+                            <input  value="{{user.state}}" disabled  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  readonly>
+                        </div>
+                      
+                        <div class="xl:col-span-12">
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Pays</label>
+                            <input  value="{{user.country}}" disabled  class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  readonly>
+                              
+                        </div>
+                    </div>
+
+                   
+                      
+                    <div class="flex justify-end gap-2 mt-4">
+                        <button type="reset" id="cancelButton" dismissModal [ModalDismiss]="'activateEmployeeModal'" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Annuler</button>
+                        @if(!user.activation){
+                        <button type="submit" id="activationButton"  class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 ">Activer compte</button>
+                        }
+
+                        
+                    </div>
+                    
+                </form>
+            </div>
+           
+          </div>
+    </ng-modals><!--end activation compte-->
+    
+
+
+    <ng-modals id="codeModal" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+        <div class="w-screen md:w-[25rem] bg-white shadow rounded-md dark:bg-zink-600">
+            <div class="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto px-6 py-8">
+                <div class="float-right">
+                    <button dismissModal [ModalDismiss]="'codeModal'" id="deleteRecord-close" class="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500"><lucide-angular name="x" [class]="'size-5'"></lucide-angular></button>
+                </div>
+                <img src="assets/images/delete.png" alt="" class="block h-12 mx-auto">
+                <div class="mt-5 text-center">
+                    <h5 class="mb-1">Saisissez le code </h5>
+
+                    <form [formGroup]="codeSend" (ngSubmit)="onSend()" >
+                        <div class="xl:col-span-12">
+                            
+                            <label for="designationSelect" class="inline-block mb-2 text-base font-medium">Code</label>
+                            <input formControlName="code" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" >
+                       
+                    </div>
+                      
+                    <div class="flex justify-center gap-2 mt-6">
+                        <button type="reset" dismissModal [ModalDismiss]="'codeModal'" class="bg-white text-slate-500 btn hover:text-slate-500 hover:bg-slate-100 focus:text-slate-500 focus:bg-slate-100 active:text-slate-500 active:bg-slate-100 dark:bg-zink-600 dark:hover:bg-slate-500/10 dark:focus:bg-slate-500/10 dark:active:bg-slate-500/10">Annuler</button>
+                        
+                        <button  type="submit" id="delete-record" class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Envoyer </button>
+                    </div>
+                     </form>
+
+                </div>
+            </div>
+        </div>
+    </ng-modals><!--end activation compte-->
+
+
+
+
+
+
+    <!--ajouter cv -->
+    
+  
+    <ng-modals id="ajoutercv" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+       
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="mb-4 text-15">Ajouter CV</h6>
+                   
+                    <div class="mx-auto md:max-w-lg">
+                        <form id="signUp" >
+                            <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-2">
+                                <div class="mb-4">
+                                    <label for="firstNameInput" class="inline-block mb-2 text-base font-medium">Titre du document <span class="text-red-500">*</span></label>
+                                    <select type="text" id="titre" formControlName="titre" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Titre du document">
+                                      <option> Choisissez </option>
+                                      <option value="CV"> Curriculul vitae </option>
+                                      <option value="lettre_de_motivation"> Lettre de motivation </option>
+                                        </select>
+                                    <p id="firstNameError" class="mt-1 text-sm text-red-500">Titre du document requis.</p>
+                                    
+                                </div>
+                             
+                            </div><!--end grid-->
+                            <div class="mb-4">
+                                <label for="cv" class="inline-block mb-2 text-base font-medium">Telecharger votre cv <span class="text-red-500">*</span></label>
+                                <input type="file" id="cv" formControlName="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="">
+                                
+                                <p id="emailError" class="mt-1 text-sm text-red-500"> CV requis.</p>
+                              
+                            </div>
+                           
+                          
+                            <div class="flex justify-end gap-2 mt-5">
+                                <button data-modal-close="ajoutercv" dismissModal [ModalDismiss]="'ajoutercv'" id="ajoutercv" type="button" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"><lucide-angular name="x" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Annuler</span></button>
+                                <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+            
+                </div>
+          </div>
+
+    
+    </ng-modals><!--end add Employee-->
+
+
+    
+
+
+
+
+
+       <!--ajouter lettre de motivation -->
+       <ng-modals id="ajouterlettredemotivation" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-4 text-15">Ajouter Lettre de motivation</h6>
+               
+                <div class="mx-auto md:max-w-lg">
+                    <form id="signUp" >
+                        <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-2">
+                            <div class="mb-4">
+                                <label for="firstNameInput" class="inline-block mb-2 text-base font-medium">Titre du document <span class="text-red-500">*</span></label>
+                                <select type="text" id="titre" formControlName="titre" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Titre du document">
+                                  <option> Choisissez </option>
+                                  <option value="CV"> Curriculul vitae </option>
+                                  <option value="lettre_de_motivation"> Lettre de motivation </option>
+                                    </select>
+                                <p id="firstNameError" class="mt-1 text-sm text-red-500">Titre du document requis.</p>
+                                
+                            </div>
+                         
+                        </div><!--end grid-->
+                        <div class="mb-4">
+                            <label for="cv" class="inline-block mb-2 text-base font-medium">Telecharger lettre de motivation <span class="text-red-500">*</span></label>
+                            <input type="file" id="cv" formControlName="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="">
+                            
+                            <p id="emailError" class="mt-1 text-sm text-red-500"> CV requis.</p>
+                          
+                        </div>
+                        <div class="flex justify-end gap-2 mt-5">
+                            <button data-modal-close="ajouterlettredemotivation" dismissModal [ModalDismiss]="'ajouterlettredemotivation'" id="ajouterlettredemotivation" type="button" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"><lucide-angular name="x" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Annuler</span></button>
+                            <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+</ng-modals><!--end lettre de motiv-->
+
+
+
+       <!--ajouter identiter -->
+       <ng-modals id="ajouteridentite" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-4 text-15">Ajouter pièce d'identité</h6>
+               
+                <div class="mx-auto md:max-w-lg">
+                    <form id="signUp" >
+                        <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-2">
+                            <div class="mb-4">
+                                <label for="firstNameInput" class="inline-block mb-2 text-base font-medium">Titre du document <span class="text-red-500">*</span></label>
+                                <select type="text" id="titre" formControlName="titre" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Titre du document">
+                                  <option> Choisissez </option>
+                                  <option value="CV"> Curriculul vitae </option>
+                                  <option value="lettre_de_motivation"> Lettre de motivation </option>
+                                    </select>
+                                <p id="firstNameError" class="mt-1 text-sm text-red-500">Titre du document requis.</p>
+                                
+                            </div>
+                         
+                        </div><!--end grid-->
+                        <div class="mb-4">
+                            <label for="cv" class="inline-block mb-2 text-base font-medium">Telecharger lettre de motivation <span class="text-red-500">*</span></label>
+                            <input type="file" id="cv" formControlName="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="">
+                            
+                            <p id="emailError" class="mt-1 text-sm text-red-500"> CV requis.</p>
+                          
+                        </div>
+                        <div class="flex justify-end gap-2 mt-5">
+                            <button data-modal-close="ajouteridentite" dismissModal [ModalDismiss]="'ajouteridentite'" id="ajouteridentite" type="button" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"><lucide-angular name="x" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Annuler</span></button>
+                            <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+</ng-modals><!--end lettre de motiv-->
+
+
+
+       <!--ajouter diplome -->
+       <ng-modals id="ajouterdiplome" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-4 text-15">Ajouter diplome</h6>
+               
+                <div class="mx-auto md:max-w-lg">
+                    <form id="signUp" >
+                        <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-2">
+                            <div class="mb-4">
+                                <label for="firstNameInput" class="inline-block mb-2 text-base font-medium">Titre du document <span class="text-red-500">*</span></label>
+                                <select type="text" id="titre" formControlName="titre" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Titre du document">
+                                  <option> Choisissez </option>
+                                  <option value="CV"> Curriculul vitae </option>
+                                  <option value="lettre_de_motivation"> Lettre de motivation </option>
+                                    </select>
+                                <p id="firstNameError" class="mt-1 text-sm text-red-500">Titre du document requis.</p>
+                                
+                            </div>
+                         
+                        </div><!--end grid-->
+                        <div class="mb-4">
+                            <label for="cv" class="inline-block mb-2 text-base font-medium">Telecharger lettre de motivation <span class="text-red-500">*</span></label>
+                            <input type="file" id="cv" formControlName="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="">
+                            
+                            <p id="emailError" class="mt-1 text-sm text-red-500"> CV requis.</p>
+                          
+                        </div>
+                        <div class="flex justify-end gap-2 mt-5">
+                            <button data-modal-close="ajouterdiplome" dismissModal [ModalDismiss]="'ajouterdiplome'" id="ajouterdiplome" type="button" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"><lucide-angular name="x" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Annuler</span></button>
+                            <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+</ng-modals><!--end diplome-->
+
+
+
+       <!--ajouter signature -->
+       <ng-modals id="ajoutersignature" [placement]="'modal-center'" className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-4 text-15">Ajouter signature</h6>
+               
+                <div class="mx-auto md:max-w-lg">
+                    <form id="signUp" >
+                        <div class="grid grid-cols-1 gap-x-5 xl:grid-cols-2">
+                            <div class="mb-4">
+                                <label for="firstNameInput" class="inline-block mb-2 text-base font-medium">Titre du document <span class="text-red-500">*</span></label>
+                                <select type="text" id="titre" formControlName="titre" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Titre du document">
+                                  <option> Choisissez </option>
+                                  <option value="CV"> Curriculul vitae </option>
+                                  <option value="lettre_de_motivation"> Lettre de motivation </option>
+                                    </select>
+                                <p id="firstNameError" class="mt-1 text-sm text-red-500">Titre du document requis.</p>
+                                
+                            </div>
+                         
+                        </div><!--end grid-->
+                        <div class="mb-4">
+                            <label for="cv" class="inline-block mb-2 text-base font-medium">Telecharger lettre de motivation <span class="text-red-500">*</span></label>
+                            <input type="file" id="cv" formControlName="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="">
+                            
+                            <p id="emailError" class="mt-1 text-sm text-red-500"> CV requis.</p>
+                          
+                        </div>
+                        <div class="flex justify-end gap-2 mt-5">
+                            <button data-modal-close="ajoutersignature" dismissModal [ModalDismiss]="'ajoutersignature'" id="ajoutersignature" type="button" class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"><lucide-angular name="x" [class]="'inline-block size-4'"></lucide-angular> <span class="align-middle">Annuler</span></button>
+                            <button type="submit" class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+</ng-modals><!--end lettre de motiv-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!--end tab content-->
+}@else {
+
+    <div class="mt-1 -ml-3 -mr-3 rounded-none card">
+  
+        <div class="card-body !px-2.5">
+            
+        
+            <div class="grid grid-cols-1 gap-5 lg:grid-cols-12 2xl:grid-cols-12">
+                <div class="lg:col-span-2 2xl:col-span-1">
+                    <div class="relative inline-block size-20 rounded-full shadow-md bg-slate-100 profile-user xl:size-28">
+                       
+                    </div>
+                </div><!--end col-->
+    
+           
+                <div class="lg:col-span-10 2xl:col-span-9">
+             
+                    <div class="flex gap-3 mb-4">
+                        
+                     
+                    </div>
+                   
+                  Loading
+            
+                </div>
+               
+            </div><!--end grid-->
+        </div>
+       
+    </div><!--end card-->
+    
+}
+

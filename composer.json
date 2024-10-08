@@ -1,0 +1,15 @@
+{
+    "name": "momo/slut_angular",
+    "autoload": {
+        "psr-4": {
+            "Momo\\SlutAngular\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bckend0007",
+            "email": "kimpunifleury@gmail.com"
+        }
+    ],
+    "require": {}
+}
